@@ -1,23 +1,18 @@
 import React from 'react';
-import {
-  ScrollView,
-  View,
-  Text
-} from 'react-native';
+import { StyleSheet, SafeAreaView } from 'react-native';
+import MainNavigator from './src/navigation/mainNavigator';
 
-const App = () => {
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
+
+export default function App() {
   return (
-    <>
-      <ScrollView>
-        <View>
-          <Text>
-            Edit App.js to change this
-            screen and then come back to see your edits.
-          </Text>
-        </View>
-      </ScrollView>
-    </>
-  );
-};
+      <SafeAreaView style={styles.container}>
+      <MainNavigator />
 
-export default App;
+      </SafeAreaView>
+  );
+}
