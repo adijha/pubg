@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Alert } from 'react-native';
+import { Alert, Text } from 'react-native';
 
 //navigation imports
 import { NavigationContainer } from '@react-navigation/native';
@@ -19,6 +19,7 @@ import IoniconsI from 'react-native-vector-icons/Ionicons';
 import EntypoI from 'react-native-vector-icons/Entypo';
 import FontistoI from 'react-native-vector-icons/Fontisto';
 import FontAwesomeI from 'react-native-vector-icons/FontAwesome';
+import SimpleLineIconsI from 'react-native-vector-icons/SimpleLineIcons';
 
 // initialize navigator
 const Stack = createStackNavigator();
@@ -80,13 +81,13 @@ const MainTabNavigator = () => {
           let iconName;
           if (route.name === "Earn") {
             iconName = 'arrow-swap';
-            return <FontistoI name={iconName} size={size} color={color} />;
+            return <Text style={{ fontSize: 22, fontWeight: 'bold' }}>₹</Text>;
           } else if (route.name === "Profile") {
             iconName = 'user';
             return <FontAwesomeI name={iconName} size={size} color={color} />;
           } else if (route.name === "Play") {
-            iconName = 'bar-graph';
-            return <EntypoI name={iconName} size={size} color={color} />;
+            iconName = 'logo-game-controller-b';
+            return <IoniconsI name={iconName} size={size} color={color} />;
           }
         },
       })}
