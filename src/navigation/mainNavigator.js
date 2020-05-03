@@ -84,7 +84,7 @@ const MainTabNavigator = () => {
           } else if (route.name === "Profile") {
             iconName = 'user';
             return <FontAwesomeI name={iconName} size={size} color={color} />;
-          } else if ("Play") {
+          } else if (route.name === "Play") {
             iconName = 'bar-graph';
             return <EntypoI name={iconName} size={size} color={color} />;
           }
@@ -110,7 +110,7 @@ const MainTabNavigator = () => {
 export default MainContainer = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator {...props}>
+      <Stack.Navigator>
         <Stack.Screen
           options={({ route }) => ({
             title: getHeaderTitle(route),
@@ -120,7 +120,6 @@ export default MainContainer = () => {
           component={MainTabNavigator}
         />
       </Stack.Navigator>
-        )}
     </NavigationContainer>
   );
 }
