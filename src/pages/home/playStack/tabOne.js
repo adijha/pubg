@@ -1,29 +1,29 @@
-import React from 'react'
-import { StyleSheet,  View  } from 'react-native'
-import Card from "../../in-component/card_playtab"
-import { Container , Content } from 'native-base'
+import React from 'react';
+import {StyleSheet, View} from 'react-native';
+import Card from '../../in-component/card_playtab';
+import {Container, Content} from 'native-base';
 
- const tabOne = ()=> {
+const tabOne = () => {
   return (
-   <Container style={styles.container}>
-     <Content>
-   <Card/>
-   <Card/>
-   <Card/>
-   </Content>
-   </Container>
-  )
-}
+    <Container style={styles.container}>
+      <Content>
+        <Card />
+        <Card />
+        <Card />
+      </Content>
+    </Container>
+  );
+};
 
-export default tabOne
+export default tabOne;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: 0,
-    backgroundColor: "#ebf0f7"
+    backgroundColor: '#ebf0f7',
   },
   contentList: {
     flex: 1,
-  }
-})
+  },
+});
