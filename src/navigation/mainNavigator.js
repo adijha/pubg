@@ -6,9 +6,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 //pages
-import PlayScreen from '../pages/home/PlayScreen';
-import ProfileScreen from '../pages/home/ProfileScreen';
-import EarnScreen from '../pages/home/EarnScreen'
+import PlayScreen from '../pages/home/playStack/PlayScreen';
+import ProfileScreen from '../pages/home/profileStack/ProfileScreen';
+import EarnScreen from '../pages/home/earnStack/EarnScreen'
 //auth
 import LoadingScreen from '../pages/auth/LoadingScreen';
 import SignInScreen from '../pages/auth/SignInScreen';
