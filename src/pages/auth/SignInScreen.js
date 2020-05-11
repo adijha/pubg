@@ -21,6 +21,8 @@ export default function SignInScreen(props) {
     try {
       const response = await AuthApi.post('/signin', {email, password});
       await AsyncStorage.setItem('token', response.data.token);
+      setEmail(' ');
+      setPassword(' ');
       props.navigation.navigate('Earn');
     } catch (err) {
       setErrorMessage('Something went wrong');
