@@ -1,6 +1,5 @@
 import React from 'react';
 import {Text} from 'react-native';
-
 //navigation imports
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -50,7 +49,11 @@ export const PlayStackNavigator = () => {
 export const AuthNavigator = () => (
   <Stack.Navigator>
     <Stack.Screen name="Loading" component={LoadingScreen} />
-    <Stack.Screen name="SignIn" component={SignInScreen} />
+    <Stack.Screen
+      name="SignIn"
+      screenOptions={{headerShown: false}}
+      component={SignInScreen}
+    />
     <Stack.Screen name="SignUp" component={SignUpScreen} />
   </Stack.Navigator>
 );
@@ -97,6 +100,13 @@ const MainContainer = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen
+          options={() => ({
+            headerShown: false,
+          })}
+          name="Auth"
+          component={AuthNavigator}
+        />
         <Stack.Screen
           options={({route}) => ({
             title: getHeaderTitle(route),
