@@ -7,7 +7,6 @@ import {
   TouchableOpacity,
   Keyboard,
 } from 'react-native';
-
 import AuthApi from '../../api/Auth';
 import AsyncStorage from '@react-native-community/async-storage';
 

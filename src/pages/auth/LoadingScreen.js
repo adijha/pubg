@@ -4,7 +4,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 export default function LoadingScreen(props) {
   const tryLogin = async () => {
     const token = await AsyncStorage.getItem('token');
-    props.navigation.navigate(token ? 'Accounts' : 'SignIn');
+    props.navigation.navigate(token ? 'Earn' : 'SignIn');
   };
   useEffect(() => {
     tryLogin();
