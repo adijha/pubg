@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 
 export default class Profile extends Component {
   render() {
@@ -21,7 +22,12 @@ export default class Profile extends Component {
             <TouchableOpacity style={styles.buttonContainer}>
               <Text>Reset Password</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.buttonContainer}>
+            <TouchableOpacity
+              style={styles.buttonContainer}
+              onPress={async () => {
+                await AsyncStorage.removeItem('token');
+                this.props.navigation.navigate('SignIn');
+              }}>
               <Text>LogOut</Text>
             </TouchableOpacity>
           </View>
