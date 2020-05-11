@@ -7,6 +7,9 @@ import {
   TouchableOpacity,
   Keyboard,
 } from 'react-native';
+import AuthApi from '../../api/Auth';
+
+import AsyncStorage from '@react-native-community/async-storage';
 
 export default function SignUpScreen(props) {
   const [email, setEmail] = useState('');
@@ -17,6 +20,14 @@ export default function SignUpScreen(props) {
   const onSubmit = async event => {
     event.preventDefault();
     console.log(email, password, name);
+    try {
+      const response = await AuthApi.post('/signup', {email, password});
+      await AsyncStorage.setItem('token', response.data.token);
+      props.navigation.navigate('Earn');
+    } catch (error) {
+      console.log({error});
+      setErrorMessage('Something went wrong');
+    }
   };
 
   return (
@@ -101,7 +112,7 @@ export default function SignUpScreen(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 80,
+    marginTop: 20,
   },
   greeting: {
     marginTop: 32,
