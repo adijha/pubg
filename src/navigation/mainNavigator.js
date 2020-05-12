@@ -71,7 +71,7 @@ export const EarnStackNavigator = () => (
 export const ProfileStackNavigator = () => (
   <ProfileStack.Navigator>
     <ProfileStack.Screen
-      options={{headerShown:false}}
+      options={{headerShown: false}}
       name="Profile"
       component={ProfileScreen}
     />
@@ -104,10 +104,10 @@ const MainTabNavigator = () => {
           }
         },
       })}
-      tabBarOptions={{activeTintColor: 'blue'}}>
-      <Tab.Screen name="Profile" component={ProfileStackNavigator} />
+      tabBarOptions={{activeTintColor: '#4e2bed'}}>
       <Tab.Screen name="Earn" component={EarnStackNavigator} />
       <Tab.Screen name="Play" component={PlayStackNavigator} />
+      <Tab.Screen name="Profile" component={ProfileStackNavigator} />
     </Tab.Navigator>
   );
 };
