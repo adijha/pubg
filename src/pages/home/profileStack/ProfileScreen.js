@@ -1,10 +1,5 @@
 import React, {useState} from 'react';
-import {
-  StyleSheet,
-  View,
-  Image,
-  ActivityIndicator,
-} from 'react-native';
+import {StyleSheet, View, Image, ActivityIndicator} from 'react-native';
 import {
   Container,
   Header,
@@ -44,7 +39,14 @@ export default function Profile(props) {
             Lorem ipsum dolor sit amet, saepe sapientem eu nam. Qui ne assum
             electram expetendis, omittam deseruisse consequuntur ius an,
           </Text>
-          <Button full rounded info style={{marginVertical: 30}}>
+          <Button
+            full
+            rounded
+            info
+            style={{
+              backgroundColor: '#3E69B9',
+              marginVertical: 30,
+            }}>
             <Text style={{color: 'white'}}>Reset Password</Text>
           </Button>
           {!loading ? (
@@ -52,6 +54,9 @@ export default function Profile(props) {
               full
               rounded
               info
+              style={{
+                backgroundColor: '#3E69B9',
+              }}
               onPress={async () => {
                 setLoading(true);
                 await AsyncStorage.removeItem('token');
@@ -61,7 +66,13 @@ export default function Profile(props) {
               <Text style={{color: 'white'}}>Log Out</Text>
             </Button>
           ) : (
-            <Button rounded info style={{width: 46, justifyContent: 'center'}}>
+            <Button
+              rounded
+              info
+              style={{
+                width: 46,
+                justifyContent: 'center',
+              }}>
               <ActivityIndicator size="large" color="white" />
             </Button>
           )}
@@ -73,7 +84,7 @@ export default function Profile(props) {
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: '#00BFFF',
+    backgroundColor: '#3E69B9',
     height: 140,
   },
   avatar: {
