@@ -39,14 +39,6 @@ function getHeaderTitle(route) {
   }
 }
 
-export const PlayStackNavigator = () => {
-  return (
-    <PlayStack.Navigator>
-      <PlayStack.Screen name="Play" component={PlayScreen} />
-    </PlayStack.Navigator>
-  );
-};
-
 export const AuthNavigator = () => (
   <Stack.Navigator screenOptions={{headerShown: false}}>
     <Stack.Screen name="Loading" component={LoadingScreen} />
@@ -54,16 +46,35 @@ export const AuthNavigator = () => (
     <Stack.Screen name="SignUp" component={SignUpScreen} />
   </Stack.Navigator>
 );
+export const PlayStackNavigator = () => {
+  return (
+    <PlayStack.Navigator>
+      <PlayStack.Screen
+        options={{headerShown: false}}
+        name="Play"
+        component={PlayScreen}
+      />
+    </PlayStack.Navigator>
+  );
+};
 
 export const EarnStackNavigator = () => (
   <EarnStack.Navigator>
-    <EarnStack.Screen name="Earn" component={EarnScreen} />
+    <EarnStack.Screen
+      // options={{headerShown:false}}
+      name="Earn"
+      component={EarnScreen}
+    />
   </EarnStack.Navigator>
 );
 
 export const ProfileStackNavigator = () => (
   <ProfileStack.Navigator>
-    <ProfileStack.Screen name="Profile" component={ProfileScreen} />
+    <ProfileStack.Screen
+      // options={{headerShown:false}}
+      name="Profile"
+      component={ProfileScreen}
+    />
   </ProfileStack.Navigator>
 );
 
@@ -73,11 +84,23 @@ const MainTabNavigator = () => {
       screenOptions={({route}) => ({
         tabBarIcon: ({color, size}) => {
           if (route.name === 'Earn') {
-            return <MaterialCommunityIconsI name="currency-inr" size={size} color={color} />;
+            return (
+              <MaterialCommunityIconsI
+                name="currency-inr"
+                size={size}
+                color={color}
+              />
+            );
           } else if (route.name === 'Profile') {
-            return <FontAwesomeI name='user' size={size} color={color} />;
+            return <FontAwesomeI name="user" size={size} color={color} />;
           } else if (route.name === 'Play') {
-            return <IoniconsI name='logo-game-controller-b' size={size} color={color} />;
+            return (
+              <IoniconsI
+                name="logo-game-controller-b"
+                size={size}
+                color={color}
+              />
+            );
           }
         },
       })}

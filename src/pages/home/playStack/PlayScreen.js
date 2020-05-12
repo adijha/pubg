@@ -14,7 +14,7 @@ import Tab3 from './tabThree';
 const TabsAdvancedExample = () => {
   return (
     <Container>
-      <Header hasTabs />
+      <Header hasTabs title="Play" />
       <Tabs>
         <Tab
           heading={
