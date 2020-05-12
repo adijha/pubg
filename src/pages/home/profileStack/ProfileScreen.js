@@ -28,7 +28,7 @@ export default function Profile(props) {
     <Container>
       <Header hasTabs>
         <Body style={{alignItems: 'center'}}>
-          <Title style={{color: 'white'}}>Play</Title>
+          <Title style={{color: 'white'}}>Profile</Title>
         </Body>
       </Header>
       <View style={styles.header} />
