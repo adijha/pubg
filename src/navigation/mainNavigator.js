@@ -16,6 +16,7 @@ import SignUpScreen from '../pages/auth/SignUpScreen';
 //bottom tab bar icons
 import IoniconsI from 'react-native-vector-icons/Ionicons';
 import FontAwesomeI from 'react-native-vector-icons/FontAwesome';
+import MaterialCommunityIconsI from 'react-native-vector-icons/MaterialCommunityIcons';
 
 // initialize navigator
 const Stack = createStackNavigator();
@@ -71,16 +72,12 @@ const MainTabNavigator = () => {
     <Tab.Navigator
       screenOptions={({route}) => ({
         tabBarIcon: ({color, size}) => {
-          let iconName;
           if (route.name === 'Earn') {
-            iconName = 'arrow-swap';
-            return <Text style={{fontSize: 22, fontWeight: 'bold'}}>₹</Text>;
+            return <MaterialCommunityIconsI name="currency-inr" size={size} color={color} />;
           } else if (route.name === 'Profile') {
-            iconName = 'user';
-            return <FontAwesomeI name={iconName} size={size} color={color} />;
+            return <FontAwesomeI name='user' size={size} color={color} />;
           } else if (route.name === 'Play') {
-            iconName = 'logo-game-controller-b';
-            return <IoniconsI name={iconName} size={size} color={color} />;
+            return <IoniconsI name='logo-game-controller-b' size={size} color={color} />;
           }
         },
       })}
