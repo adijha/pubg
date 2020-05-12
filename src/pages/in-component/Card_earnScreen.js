@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Image} from 'react-native';
+import {StyleSheet, Image, TouchableOpacity} from 'react-native';
 import {
   Card,
   CardItem,
@@ -18,29 +18,32 @@ const Card_earnScreen = props => {
     '3': 'https://wallpapercave.com/wp/wp1964365.png',
   };
   return (
-    <Card>
-      <CardItem cardBody>
-        <Image source={{uri: images[props.imageSource]}} style={styles.img} />
-      </CardItem>
-      <CardItem>
-        <Left>
-          <Button>
-            <Icon active name="wallet" />
-            <Text>{props.likes}</Text>
-          </Button>
-        </Left>
-        <Body
-          style={{
-            paddingLeft: 40,
-          }}>
-          <Text>{props.Tournament}</Text>
-        </Body>
-        <Right>
-          <Icon active name="ios-people" />
-          <Text>{props.People}</Text>
-        </Right>
-      </CardItem>
-    </Card>
+    <TouchableOpacity
+      onPress={props.onPress}>
+      <Card>
+        <CardItem cardBody>
+          <Image source={{uri: images[props.imageSource]}} style={styles.img} />
+        </CardItem>
+        <CardItem>
+          <Left>
+            <Button>
+              <Icon active name="wallet" />
+              <Text>{props.likes}</Text>
+            </Button>
+          </Left>
+          <Body
+            style={{
+              paddingLeft: 40,
+            }}>
+            <Text>{props.Tournament}</Text>
+          </Body>
+          <Right>
+            <Icon active name="ios-people" />
+            <Text>{props.People}</Text>
+          </Right>
+        </CardItem>
+      </Card>
+    </TouchableOpacity>
   );
 };
 

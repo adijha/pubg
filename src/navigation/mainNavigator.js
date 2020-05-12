@@ -4,10 +4,14 @@ import {Text} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-//pages
+//Home
+//Play
 import PlayScreen from '../pages/home/playStack/PlayScreen';
+//Profile
 import ProfileScreen from '../pages/home/profileStack/ProfileScreen';
+//Earn
 import EarnScreen from '../pages/home/earnStack/EarnScreen';
+import EarnDetails from '../pages/home/earnStack/EarnDetails';
 //auth
 import LoadingScreen from '../pages/auth/LoadingScreen';
 import SignInScreen from '../pages/auth/SignInScreen';
@@ -64,6 +68,11 @@ export const EarnStackNavigator = () => (
       options={{headerShown: false}}
       name="Earn"
       component={EarnScreen}
+    />
+    <EarnStack.Screen
+      options={{headerShown: false}}
+      name="EarnDetails"
+      component={EarnDetails}
     />
   </EarnStack.Navigator>
 );
