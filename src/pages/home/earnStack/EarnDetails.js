@@ -7,7 +7,9 @@ const EarnDetails = props => {
     <Container style={styles.container}>
       <Header hasTabs>
         <Body style={{alignItems: 'center'}}>
-          <Title style={{color: 'white'}}>Earn</Title>
+          <Title style={{color: 'white'}}>
+            {props.route.params.tournament} Tournament
+          </Title>
         </Body>
       </Header>
       <Content>
@@ -17,6 +19,7 @@ const EarnDetails = props => {
           Tournament="Gold"
           People="40"
         />
+        
       </Content>
     </Container>
   );

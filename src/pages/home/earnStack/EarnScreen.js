@@ -15,6 +15,7 @@ const EarnScreen = props => {
           onPress={() =>
             props.navigation.navigate('EarnDetails', {
               imageSource: '1',
+              tournament: 'Gold',
             })
           }
           imageSource="1"
@@ -26,6 +27,7 @@ const EarnScreen = props => {
           onPress={() =>
             props.navigation.navigate('EarnDetails', {
               imageSource: '2',
+              tournament: 'Silver',
             })
           }
           imageSource="2"
@@ -37,6 +39,7 @@ const EarnScreen = props => {
           onPress={() =>
             props.navigation.navigate('EarnDetails', {
               imageSource: '3',
+              tournament: 'Bronze',
             })
           }
           imageSource="3"
