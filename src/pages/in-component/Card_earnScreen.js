@@ -35,7 +35,7 @@ const Card_earnScreen = props => {
             style={{
               paddingLeft: 40,
             }}>
-            <Text>{props.Tournament}</Text>
+          <Text>Pubg {props.Tournament} Tournament</Text>
           </Body>
           <Right>
             <Icon active name="ios-people" />
