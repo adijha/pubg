@@ -1,40 +1,66 @@
-import React, {Component} from 'react';
-import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
+import React, {useState} from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  ActivityIndicator,
+} from 'react-native';
+import {Button} from 'native-base';
 import AsyncStorage from '@react-native-community/async-storage';
 
-export default class Profile extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <View style={styles.header} />
-        <Image
-          style={styles.avatar}
-          source={{uri: 'https://adijha.com/profile.jpg'}}
-        />
-        <View style={styles.body}>
-          <View style={styles.bodyContent}>
-            <Text style={styles.name}>Aditya Kumar Jha</Text>
-            <Text style={styles.info}>Web Develoer / Mobile developer</Text>
-            <Text style={styles.description}>
-              Lorem ipsum dolor sit amet, saepe sapientem eu nam. Qui ne assum
-              electram expetendis, omittam deseruisse consequuntur ius an,
-            </Text>
-            <TouchableOpacity style={styles.buttonContainer}>
-              <Text>Reset Password</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
+export default function Profile(props) {
+  const [loading, setLoading] = useState(false);
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.header} />
+      <Image
+        style={styles.avatar}
+        source={{uri: 'https://adijha.com/profile.jpg'}}
+      />
+      <View style={styles.body}>
+        <View style={styles.bodyContent}>
+          <Text style={styles.name}>Aditya Kumar Jha</Text>
+          <Text style={styles.info}>Web Develoer / Mobile developer</Text>
+          <Text style={styles.description}>
+            Lorem ipsum dolor sit amet, saepe sapientem eu nam. Qui ne assum
+            electram expetendis, omittam deseruisse consequuntur ius an,
+          </Text>
+          <TouchableOpacity style={styles.buttonContainer}>
+            <Text>Reset Password</Text>
+          </TouchableOpacity>
+          {/* <TouchableOpacity
               style={styles.buttonContainer}
               onPress={async () => {
                 await AsyncStorage.removeItem('token');
                 this.props.navigation.navigate('SignIn');
               }}>
               <Text>LogOut</Text>
-            </TouchableOpacity>
-          </View>
+            </TouchableOpacity> */}
+          {!loading ? (
+            <Button
+              full
+              rounded
+              info
+              onPress={async () => {
+                setLoading(true);
+                await AsyncStorage.removeItem('token');
+                props.navigation.navigate('SignIn');
+                setLoading(false);
+              }}>
+              <Text style={{color: 'white'}}>Log Out</Text>
+            </Button>
+          ) : (
+            <Button rounded info style={{width: 46, justifyContent: 'center'}}>
+              <ActivityIndicator size="large" color="white" />
+            </Button>
+          )}
         </View>
       </View>
-    );
-  }
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
