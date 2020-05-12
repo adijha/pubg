@@ -71,7 +71,7 @@ export const EarnStackNavigator = () => (
 export const ProfileStackNavigator = () => (
   <ProfileStack.Navigator>
     <ProfileStack.Screen
-      // options={{headerShown:false}}
+      options={{headerShown:false}}
       name="Profile"
       component={ProfileScreen}
     />

@@ -1,20 +1,36 @@
 import React, {useState} from 'react';
 import {
   StyleSheet,
-  Text,
   View,
   Image,
-  TouchableOpacity,
   ActivityIndicator,
 } from 'react-native';
-import {Button} from 'native-base';
+import {
+  Container,
+  Header,
+  Tab,
+  Tabs,
+  TabHeading,
+  Icon,
+  Text,
+  Left,
+  Right,
+  Body,
+  Title,
+  Button,
+} from 'native-base';
 import AsyncStorage from '@react-native-community/async-storage';
 
 export default function Profile(props) {
   const [loading, setLoading] = useState(false);
 
   return (
-    <View style={styles.container}>
+    <Container>
+      <Header hasTabs>
+        <Body style={{alignItems: 'center'}}>
+          <Title style={{color: 'white'}}>Play</Title>
+        </Body>
+      </Header>
       <View style={styles.header} />
       <Image
         style={styles.avatar}
@@ -28,17 +44,9 @@ export default function Profile(props) {
             Lorem ipsum dolor sit amet, saepe sapientem eu nam. Qui ne assum
             electram expetendis, omittam deseruisse consequuntur ius an,
           </Text>
-          <TouchableOpacity style={styles.buttonContainer}>
-            <Text>Reset Password</Text>
-          </TouchableOpacity>
-          {/* <TouchableOpacity
-              style={styles.buttonContainer}
-              onPress={async () => {
-                await AsyncStorage.removeItem('token');
-                this.props.navigation.navigate('SignIn');
-              }}>
-              <Text>LogOut</Text>
-            </TouchableOpacity> */}
+          <Button full rounded info style={{marginVertical: 30}}>
+            <Text style={{color: 'white'}}>Reset Password</Text>
+          </Button>
           {!loading ? (
             <Button
               full
@@ -59,14 +67,14 @@ export default function Profile(props) {
           )}
         </View>
       </View>
-    </View>
+    </Container>
   );
 }
 
 const styles = StyleSheet.create({
   header: {
     backgroundColor: '#00BFFF',
-    height: 150,
+    height: 140,
   },
   avatar: {
     width: 130,
@@ -77,7 +85,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     alignSelf: 'center',
     position: 'absolute',
-    marginTop: 85,
+    marginTop: 125,
   },
   body: {
     marginTop: 40,
