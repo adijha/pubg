@@ -10,12 +10,12 @@ const card_playtab = () => {
       </CardItem>
       <CardItem bordered>
         <Body>
-          <Text>Kill:</Text>
-          <Text>Price:</Text>
+          <Text>Kill :</Text>
+          <Text>Price :</Text>
         </Body>
       </CardItem>
       <CardItem footer bordered>
-        <Text>Total player:</Text>
+        <Text>Total player :</Text>
       </CardItem>
     </Card>
   );
