@@ -8,6 +8,7 @@ import {
   Keyboard,
   ActivityIndicator,
 } from 'react-native';
+import {Button} from 'native-base';
 import AuthApi from '../../api/Auth';
 import AsyncStorage from '@react-native-community/async-storage';
 
@@ -22,8 +23,6 @@ export default function SignInScreen(props) {
     try {
       const response = await AuthApi.post('/signin', {email, password});
       await AsyncStorage.setItem('token', response.data.token);
-      setEmail('');
-      setPassword('');
       setLoading(false);
       props.navigation.navigate('Earn');
     } catch (err) {
@@ -64,8 +63,8 @@ export default function SignInScreen(props) {
         </View>
       </View>
 
-      <TouchableOpacity style={styles.button} onPress={onSubmit}>
-        {!loading ? (
+      {!loading ? (
+        <TouchableOpacity style={styles.button} onPress={onSubmit}>
           <Text
             style={{
               color: '#FFF',
@@ -73,28 +72,34 @@ export default function SignInScreen(props) {
             }}>
             Sign in
           </Text>
-        ) : (
-          <ActivityIndicator size="large" />
-        )}
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        style={{
-          marginHorizontal: 30,
-          marginTop: 12,
-        }}
-        onPress={() => {
-          // props.navigation.navigate('ResetPassword');
-          Keyboard.dismiss();
-        }}>
-        <Text
+        </TouchableOpacity>
+      ) : (
+        <Button
+          rounded
+          info
+          style={{width: 46, justifyContent: 'center', alignSelf: 'center'}}>
+          <ActivityIndicator size="large" color="white" />
+        </Button>
+      )}
+      {loading ? null : (
+        <TouchableOpacity
           style={{
-            color: '#414959',
-            fontSize: 13,
+            marginHorizontal: 30,
+            marginTop: 12,
+          }}
+          onPress={() => {
+            // props.navigation.navigate('ResetPassword');
+            Keyboard.dismiss();
           }}>
-          Forgot your password ?
-        </Text>
-      </TouchableOpacity>
+          <Text
+            style={{
+              color: '#414959',
+              fontSize: 13,
+            }}>
+            Forgot your password ?
+          </Text>
+        </TouchableOpacity>
+      )}
       <TouchableOpacity
         style={{
           alignSelf: 'center',

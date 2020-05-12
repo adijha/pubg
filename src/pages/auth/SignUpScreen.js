@@ -8,6 +8,7 @@ import {
   Keyboard,
   ActivityIndicator,
 } from 'react-native';
+import {Button} from 'native-base';
 import AuthApi from '../../api/Auth';
 import AsyncStorage from '@react-native-community/async-storage';
 
@@ -73,8 +74,9 @@ export default function SignUpScreen(props) {
           />
         </View>
       </View>
-      <TouchableOpacity style={styles.button} onPress={onSubmit}>
-        {!loading ? (
+
+      {!loading ? (
+        <TouchableOpacity style={styles.button} onPress={onSubmit}>
           <Text
             style={{
               color: '#FFF',
@@ -82,10 +84,15 @@ export default function SignUpScreen(props) {
             }}>
             Sign Up
           </Text>
-        ) : (
-          <ActivityIndicator size="large" />
-        )}
-      </TouchableOpacity>
+        </TouchableOpacity>
+      ) : (
+        <Button
+          rounded
+          info
+          style={{width: 46, justifyContent: 'center', alignSelf: 'center'}}>
+          <ActivityIndicator size="large" color="white" />
+        </Button>
+      )}
 
       <TouchableOpacity
         style={{
