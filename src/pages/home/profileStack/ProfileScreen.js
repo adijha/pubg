@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
   },
   info: {
     fontSize: 16,
-    color: '#00BFFF',
+    color: '#3E69B9',
     marginTop: 10,
   },
   description: {
