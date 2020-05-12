@@ -47,13 +47,9 @@ export const PlayStackNavigator = () => {
 };
 
 export const AuthNavigator = () => (
-  <Stack.Navigator>
+  <Stack.Navigator screenOptions={{headerShown: false}}>
     <Stack.Screen name="Loading" component={LoadingScreen} />
-    <Stack.Screen
-      name="SignIn"
-      screenOptions={{headerShown: false}}
-      component={SignInScreen}
-    />
+    <Stack.Screen name="SignIn" component={SignInScreen} />
     <Stack.Screen name="SignUp" component={SignUpScreen} />
   </Stack.Navigator>
 );

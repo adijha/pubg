@@ -6,6 +6,7 @@ import {
   TextInput,
   TouchableOpacity,
   Keyboard,
+  ActivityIndicator,
 } from 'react-native';
 import AuthApi from '../../api/Auth';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -14,18 +15,20 @@ export default function SignInScreen(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState(null);
-
+  const [loading, setLoading] = useState(false);
   const onSubmit = async event => {
     event.preventDefault();
-    console.log(email, password);
+    setLoading(true);
     try {
       const response = await AuthApi.post('/signin', {email, password});
       await AsyncStorage.setItem('token', response.data.token);
-      setEmail(' ');
-      setPassword(' ');
+      setEmail('');
+      setPassword('');
+      setLoading(false);
       props.navigation.navigate('Earn');
     } catch (err) {
       setErrorMessage('Something went wrong');
+      setLoading(false);
       console.log('Error', err);
     }
   };
@@ -60,22 +63,28 @@ export default function SignInScreen(props) {
           />
         </View>
       </View>
+
       <TouchableOpacity style={styles.button} onPress={onSubmit}>
-        <Text
-          style={{
-            color: '#FFF',
-            fontWeight: '500',
-          }}>
-          Sign in
-        </Text>
+        {!loading ? (
+          <Text
+            style={{
+              color: '#FFF',
+              fontWeight: '500',
+            }}>
+            Sign in
+          </Text>
+        ) : (
+          <ActivityIndicator size="large" />
+        )}
       </TouchableOpacity>
+
       <TouchableOpacity
         style={{
           marginHorizontal: 30,
           marginTop: 12,
         }}
         onPress={() => {
-          props.navigation.navigate('ResetPassword');
+          // props.navigation.navigate('ResetPassword');
           Keyboard.dismiss();
         }}>
         <Text

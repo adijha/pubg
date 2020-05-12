@@ -6,6 +6,7 @@ import {
   TextInput,
   TouchableOpacity,
   Keyboard,
+  ActivityIndicator,
 } from 'react-native';
 import AuthApi from '../../api/Auth';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -15,17 +16,19 @@ export default function SignUpScreen(props) {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState(null);
-
+  const [loading, setLoading] = useState(false);
   const onSubmit = async event => {
     event.preventDefault();
-    console.log(email, password, name);
+    setLoading(true);
     try {
       const response = await AuthApi.post('/signup', {email, password});
       await AsyncStorage.setItem('token', response.data.token);
+      setLoading(false);
       props.navigation.navigate('Earn');
     } catch (error) {
-      console.log({error});
       setErrorMessage('Something went wrong');
+      setLoading(false);
+      console.log({error});
     }
   };
 
@@ -71,13 +74,17 @@ export default function SignUpScreen(props) {
         </View>
       </View>
       <TouchableOpacity style={styles.button} onPress={onSubmit}>
-        <Text
-          style={{
-            color: '#FFF',
-            fontWeight: '500',
-          }}>
-          Sign Up
-        </Text>
+        {!loading ? (
+          <Text
+            style={{
+              color: '#FFF',
+              fontWeight: '500',
+            }}>
+            Sign Up
+          </Text>
+        ) : (
+          <ActivityIndicator size="large" />
+        )}
       </TouchableOpacity>
 
       <TouchableOpacity
