@@ -7,6 +7,10 @@ import {
   TabHeading,
   Icon,
   Text,
+  Left,
+  Right,
+  Body,
+  Title,
 } from 'native-base';
 import Tab1 from './tabOne';
 import Tab2 from './tabTwo';
@@ -14,7 +18,13 @@ import Tab3 from './tabThree';
 const TabsAdvancedExample = () => {
   return (
     <Container>
-      <Header hasTabs title="Play" />
+      <Header hasTabs>
+        {/* <Left /> */}
+        <Body style={{alignItems: 'center'}}>
+          <Title style={{color: 'white'}}>Play</Title>
+        </Body>
+        {/* <Right /> */}
+      </Header>
       <Tabs>
         <Tab
           heading={

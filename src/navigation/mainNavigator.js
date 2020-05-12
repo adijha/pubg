@@ -61,7 +61,7 @@ export const PlayStackNavigator = () => {
 export const EarnStackNavigator = () => (
   <EarnStack.Navigator>
     <EarnStack.Screen
-      // options={{headerShown:false}}
+      options={{headerShown:false}}
       name="Earn"
       component={EarnScreen}
     />
