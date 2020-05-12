@@ -3,7 +3,7 @@ import {StyleSheet, View} from 'react-native';
 import Card from '../../in-component/card_playtab';
 import {Container, Content} from 'native-base';
 
-const tabOne = () => {
+const TabOne = () => {
   return (
     <Container style={styles.container}>
       <Content>
@@ -15,7 +15,7 @@ const tabOne = () => {
   );
 };
 
-export default tabOne;
+export default TabOne;
 
 const styles = StyleSheet.create({
   container: {
