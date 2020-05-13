@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Keyboard,
   ActivityIndicator,
+  ScrollView,
 } from 'react-native';
 import {Button} from 'native-base';
 import AuthApi from '../../api/Auth';
@@ -17,23 +18,31 @@ export default function SignInScreen(props) {
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [space, setSpace] = useState(false);
   const onSubmit = async event => {
     event.preventDefault();
+    setSpace(false);
     setLoading(true);
-    try {
-      const response = await AuthApi.post('/signin', {email, password});
-      await AsyncStorage.setItem('token', response.data.token);
+    if (email.length < 6 || password.length < 6) {
+      setErrorMessage('Fill out the form');
       setLoading(false);
-      props.navigation.navigate('Earn');
-    } catch (err) {
-      setErrorMessage('Something went wrong');
-      setLoading(false);
-      console.log('Error', err);
+    } else {
+      try {
+        const response = await AuthApi.post('/signin', {email, password});
+        await AsyncStorage.setItem('token', response.data.token);
+        setLoading(false);
+        props.navigation.navigate('Earn');
+      } catch (err) {
+        setErrorMessage('Something went wrong');
+        setLoading(false);
+        console.log('Error', err);
+      }
     }
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
+      {!space ? <View style={{height: 65}} /> : null}
       <Text style={styles.greeting}> {`Hello again.\nWelcome back.`} </Text>
       <View style={styles.errorMessage}>
         {errorMessage ? (
@@ -59,12 +68,21 @@ export default function SignInScreen(props) {
             secureTextEntry
             autoCapitalize="none"
             onChangeText={password => setPassword(password)}
+            onFocus={() => setSpace(true)}
+            onSubmitEditing={() => setSpace(false)}
           />
         </View>
       </View>
 
       {!loading ? (
-        <TouchableOpacity style={styles.button} onPress={onSubmit}>
+        <Button
+          full
+          rounded
+          info
+          style={{
+            backgroundColor: '#3E69B9',
+          }}
+          onPress={onSubmit}>
           <Text
             style={{
               color: '#FFF',
@@ -72,7 +90,7 @@ export default function SignInScreen(props) {
             }}>
             Sign in
           </Text>
-        </TouchableOpacity>
+        </Button>
       ) : (
         <Button
           rounded
@@ -84,7 +102,7 @@ export default function SignInScreen(props) {
       {loading ? null : (
         <TouchableOpacity
           style={{
-            marginHorizontal: 30,
+            // marginHorizontal: 30,
             marginTop: 12,
           }}
           onPress={() => {
@@ -125,13 +143,13 @@ export default function SignInScreen(props) {
           </Text>
         </Text>
       </TouchableOpacity>
-    </View>
+    </ScrollView>
   );
 }
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 80,
+    paddingHorizontal: 39,
   },
   greeting: {
     marginTop: 32,
@@ -143,7 +161,7 @@ const styles = StyleSheet.create({
     height: 72,
     alignItems: 'center',
     justifyContent: 'center',
-    marginHorizontal: 30,
+    // marginHorizontal: 30,
   },
   error: {
     color: '#6CBAD9',
@@ -153,7 +171,7 @@ const styles = StyleSheet.create({
   },
   form: {
     marginBottom: 48,
-    marginHorizontal: 30,
+    // marginHorizontal: 30,
   },
   inputTitle: {
     color: '#8A8F9E',
@@ -168,7 +186,7 @@ const styles = StyleSheet.create({
     color: '#161F3D',
   },
   button: {
-    marginHorizontal: 30,
+    // marginHorizontal: 30,
     backgroundColor: '#6CBAD9',
     borderRadius: 4,
     height: 52,
