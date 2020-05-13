@@ -31,7 +31,7 @@ const Card_earnScreen = props => {
 
   return (
     <TouchableOpacity
-      style={{borderRadius: 20, margin: 20}}
+      style={{borderRadius: 20, marginHorizontal: 20, marginVertical: 10}}
       onPress={props.onPress}>
       <Card style={{borderRadius: 20}}>
         <Accordion
@@ -39,13 +39,12 @@ const Card_earnScreen = props => {
           headerStyle={{backgroundColor: '#b7daf8'}}
           contentStyle={{backgroundColor: '#ddecf8'}}
         />
-
         <CardItem cardBody style={{borderRadius: 20}}>
           <Image source={images[props.imageSource]} style={styles.img} />
         </CardItem>
         <CardItem>
           <Left>
-            <Button>
+            <Button style={{backgroundColor: '#22273A'}}>
               <Icon active name="wallet" />
               <Text>{props.likes}</Text>
             </Button>
@@ -61,7 +60,7 @@ const Card_earnScreen = props => {
             <Text>{props.People}</Text>
           </Right>
         </CardItem>
-        <Button block>
+        <Button block style={{backgroundColor: '#22273A'}}>
           <Text>Enter</Text>
         </Button>
       </Card>
