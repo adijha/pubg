@@ -110,7 +110,7 @@ export default function SignUpScreen(props) {
                 color: '#FFF',
                 fontWeight: '500',
               }}>
-              Sign in
+              Sign up
             </Text>
           </Button>
         ) : (
