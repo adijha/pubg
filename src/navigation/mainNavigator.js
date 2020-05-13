@@ -98,22 +98,32 @@ const MainTabNavigator = () => {
     <Tab.Navigator
       screenOptions={({route}) => ({
         tabBarIcon: ({color, size}) => {
+          size = 30;
           if (route.name === 'Earn') {
             return (
               <MaterialCommunityIconsI
                 name="currency-inr"
                 size={size}
                 color={color}
+                style={{marginBottom: -5}}
               />
             );
           } else if (route.name === 'Profile') {
-            return <FontAwesomeI name="user" size={size} color={color} />;
+            return (
+              <FontAwesomeI
+                name="user"
+                size={size}
+                color={color}
+                style={{marginBottom: -5}}
+              />
+            );
           } else if (route.name === 'Play') {
             return (
               <IoniconsI
                 name="logo-game-controller-b"
                 size={size}
                 color={color}
+                style={{marginBottom: -5}}
               />
             );
           }
@@ -123,6 +133,7 @@ const MainTabNavigator = () => {
         activeTintColor: '#FABE0F',
         inactiveBackgroundColor: '#23283B',
         activeBackgroundColor: '#23283B',
+        style: {height: 57},
       }}>
       <Tab.Screen name="Play" component={PlayStackNavigator} />
       <Tab.Screen name="Profile" component={ProfileStackNavigator} />
