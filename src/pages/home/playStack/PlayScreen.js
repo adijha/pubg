@@ -1,60 +1,56 @@
-import React, {Component, StyleSheet} from 'react';
-import {
-  Container,
-  Header,
-  Tab,
-  Tabs,
-  TabHeading,
-  Icon,
-  Text,
-  Left,
-  Right,
-  Body,
-  Title,
-} from 'native-base';
-import Tab1 from './tabOne';
-import Tab2 from './tabTwo';
-import Tab3 from './tabThree';
+import React from 'react';
+import {TouchableOpacity, StyleSheet, Image, View} from 'react-native';
+import {Container, Header, Body, Title, Text} from 'native-base';
+import Intro from '../../../assets/intro.jpg';
+
 const TabsAdvancedExample = () => {
   return (
-    <Container>
-      <Header hasTabs>
-        {/* <Left /> */}
+    <View style={{backgroundColor: '#23283B', flex: 1}}>
+      {/* <Header hasTabs style={{marginBottom:10}}>
         <Body style={{alignItems: 'center'}}>
           <Title style={{color: 'white'}}>Play</Title>
         </Body>
-        {/* <Right /> */}
-      </Header>
-      <Tabs>
-        <Tab
-          heading={
-            <TabHeading>
-              <Icon name="ios-clock" />
-              <Text>ONGOING</Text>
-            </TabHeading>
-          }>
-          <Tab1 />
-        </Tab>
-        <Tab
-          heading={
-            <TabHeading>
-              <Icon name="logo-game-controller-b" />
-              <Text>UPCOMING</Text>
-            </TabHeading>
-          }>
-          <Tab2 />
-        </Tab>
-        <Tab
-          heading={
-            <TabHeading>
-              <Icon name="apps" />
-              <Text>RESULT</Text>
-            </TabHeading>
-          }>
-          <Tab3 />
-        </Tab>
-      </Tabs>
-    </Container>
+      </Header> */}
+      <TouchableOpacity style={styles.card}>
+        <Image source={Intro} style={styles.image} />
+        <Text style={styles.text}>PUBG MOBILE</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.card}>
+        <Image source={Intro} style={styles.image} />
+        <Text style={styles.text}>PUBG MOBILE</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.card}>
+        <Image source={Intro} style={styles.image} />
+        <Text style={styles.text}>PUBG MOBILE</Text>
+      </TouchableOpacity>
+    </View>
   );
 };
+const styles = StyleSheet.create({
+  card: {
+    backgroundColor: '#3F4869',
+    marginBottom: 15,
+    marginLeft: '3%',
+    width: '94%',
+    shadowColor: '#000',
+    shadowOpacity: 0.2,
+    shadowRadius: 1,
+    shadowOffset: {
+      width: 3,
+      height: 3,
+    },
+  },
+  text: {
+    padding: 10,
+    fontSize: 16,
+    color: 'white',
+    alignSelf: 'center',
+  },
+  image: {
+    width: '100%',
+    resizeMode: 'cover',
+    height: 200,
+  },
+});
+
 export default TabsAdvancedExample;

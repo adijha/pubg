@@ -7,6 +7,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 //Home
 //Play
 import PlayScreen from '../pages/home/playStack/PlayScreen';
+import PlayDetails from '../pages/home/playStack/PlayDetails';
 //Profile
 import ProfileScreen from '../pages/home/profileStack/ProfileScreen';
 //Earn
@@ -57,6 +58,11 @@ export const PlayStackNavigator = () => {
         options={{headerShown: false}}
         name="Play"
         component={PlayScreen}
+      />
+      <PlayStack.Screen
+        options={{headerShown: false}}
+        name="PlayDetails"
+        component={PlayDetails}
       />
     </PlayStack.Navigator>
   );
@@ -114,9 +120,9 @@ const MainTabNavigator = () => {
         },
       })}
       tabBarOptions={{activeTintColor: '#4e2bed'}}>
+      <Tab.Screen name="Play" component={PlayStackNavigator} />
       <Tab.Screen name="Profile" component={ProfileStackNavigator} />
       <Tab.Screen name="Earn" component={EarnStackNavigator} />
-      <Tab.Screen name="Play" component={PlayStackNavigator} />
     </Tab.Navigator>
   );
 };
