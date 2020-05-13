@@ -5,7 +5,7 @@ import {Container, Content, Header, Title, Body} from 'native-base';
 const EarnDetails = props => {
   return (
     <Container style={styles.container}>
-      <Header hasTabs>
+      <Header hasTabs style={{backgroundColor: '#22273A'}}>
         <Body style={{alignItems: 'center'}}>
           <Title style={{color: 'white'}}>
             {props.route.params.tournament} Tournament
@@ -18,8 +18,7 @@ const EarnDetails = props => {
           likes="250"
           Tournament="Gold"
           People="40"
-        />
-        
+        />        
       </Content>
     </Container>
   );
