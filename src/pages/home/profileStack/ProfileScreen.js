@@ -1,19 +1,6 @@
 import React, {useState} from 'react';
 import {StyleSheet, View, Image, ActivityIndicator} from 'react-native';
-import {
-  Container,
-  Header,
-  Tab,
-  Tabs,
-  TabHeading,
-  Icon,
-  Text,
-  Left,
-  Right,
-  Body,
-  Title,
-  Button,
-} from 'native-base';
+import {Container, Header, Text, Body, Title, Button} from 'native-base';
 import AsyncStorage from '@react-native-community/async-storage';
 
 export default function Profile(props) {
@@ -21,7 +8,7 @@ export default function Profile(props) {
 
   return (
     <Container>
-      <Header hasTabs>
+      <Header hasTabs style={{backgroundColor: '#274070'}}>
         <Body style={{alignItems: 'center'}}>
           <Title style={{color: 'white'}}>Profile</Title>
         </Body>
@@ -34,7 +21,11 @@ export default function Profile(props) {
       <View style={styles.body}>
         <View style={styles.bodyContent}>
           <Text style={styles.name}>Aditya Kumar Jha</Text>
-          <Text style={styles.info}>Web Developer / Mobile developer</Text>
+          {/* <Text style={styles.info}>Web Developer / Mobile developer</Text> */}
+          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+            <Text style={styles.info}>Play Points: 30 </Text>
+            <Text style={styles.info}> Username: adijha</Text>
+          </View>
           <Text style={styles.description}>
             Lorem ipsum dolor sit amet, saepe sapientem eu nam. Qui ne assum
             electram expetendis, omittam deseruisse consequuntur ius an,
@@ -102,7 +93,7 @@ const styles = StyleSheet.create({
     marginTop: 40,
   },
   bodyContent: {
-    flex: 1,
+    // flex: 1,
     alignItems: 'center',
     padding: 30,
   },
