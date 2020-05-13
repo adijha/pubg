@@ -8,17 +8,11 @@ export default function Profile(props) {
 
   return (
     <Container>
-      <Header hasTabs style={{backgroundColor: '#274070'}}>
-        <Body style={{alignItems: 'center'}}>
-          <Title style={{color: 'white'}}>Profile</Title>
-        </Body>
-      </Header>
       <View style={styles.header} />
       <Image style={styles.avatar} source={Img} />
       <View style={styles.body}>
         <View style={styles.bodyContent}>
           <Text style={styles.name}>Aditya Kumar Jha</Text>
-          {/* <Text style={styles.info}>Web Developer / Mobile developer</Text> */}
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
             <Text style={styles.info}>Play Points: 30</Text>
             <Text style={{width: 20}}> </Text>
@@ -74,7 +68,7 @@ export default function Profile(props) {
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: '#3E69B9',
+    backgroundColor: '#22273A',
     height: 140,
   },
   avatar: {
@@ -86,7 +80,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     alignSelf: 'center',
     position: 'absolute',
-    marginTop: 125,
+    marginTop: 75,
   },
   body: {
     marginTop: 40,

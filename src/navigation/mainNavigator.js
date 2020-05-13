@@ -114,7 +114,21 @@ export const EarnStackNavigator = () => (
 export const ProfileStackNavigator = () => (
   <ProfileStack.Navigator>
     <ProfileStack.Screen
-      options={{headerShown: false}}
+      options={{
+        headerStyle: {
+          backgroundColor: '#22273A',
+        },
+        headerTintColor: 'white',
+        title: 'Your Profile',
+        headerLeft: () => (
+          <FontAwesomeI
+            name="user"
+            size={30}
+            color="#FABE0F"
+            style={{marginLeft: 22}}
+          />
+        ),
+      }}
       name="Profile"
       component={ProfileScreen}
     />
