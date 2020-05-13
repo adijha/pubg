@@ -2,20 +2,12 @@ import React from 'react';
 import {StyleSheet, Image , ImageBackground} from 'react-native';
 import Earncard from '../../in-component/Card_earnScreen';
 import {Container, Content, Header, Title, Body,Thumbnail} from 'native-base';
+import Sky from '../../../assets/sky.png'
 const EarnScreen = props => {
-  const image = { uri: "https://cdn.pixabay.com/photo/2014/04/08/19/38/sky-319546__340.png" };
-  const uri = { uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQlgqtqp6FvuFUb2uKQcYZwyvO17uDEILepLht7qBc9FW441Q-5&usqp=CAU" };
+
   return (
     <Container style={styles.container}>
-      <Header hasTabs>
-        <Body style={{alignItems: 'center',flex: 1,flexDirection:"row",padding:30}}>
-
-        <Thumbnail  small source={uri} style={{paddingRight:10}} />
-          <Title style={{color: 'white',paddingLeft:40}}>Earn</Title>
-
-        </Body>
-      </Header>
-      <ImageBackground source={ image} style={styles.image}>
+      <ImageBackground source={Sky} style={styles.image}>
       <Content>
         <Earncard
           onPress={() =>

@@ -85,7 +85,21 @@ export const PlayStackNavigator = () => {
 export const EarnStackNavigator = () => (
   <EarnStack.Navigator>
     <EarnStack.Screen
-      options={{headerShown: false}}
+      options={{
+        headerStyle: {
+          backgroundColor: '#22273A',
+        },
+        headerTintColor: 'white',
+        title: 'Play Games and Earn',
+        headerLeft: () => (
+          <MaterialCommunityIconsI
+            name="currency-inr"
+            size={30}
+            color="#FABE0F"
+            style={{marginLeft: 22}}
+          />
+        ),
+      }}
       name="Earn"
       component={EarnScreen}
     />
