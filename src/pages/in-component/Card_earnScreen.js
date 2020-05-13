@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Image, TouchableOpacity,View} from 'react-native';
+import {StyleSheet, Image, TouchableOpacity, View} from 'react-native';
 import {
   Card,
   CardItem,
@@ -9,35 +9,39 @@ import {
   Left,
   Body,
   Right,
-  Accordion
- 
+  Accordion,
 } from 'native-base';
+import Loot from '../../assets/loot.png';
+import Intro from '../../assets/intro.jpg';
+import Pc from '../../assets/pc.png';
 
 const Card_earnScreen = props => {
   const images = {
-    '1': 'https://wallpapercave.com/wp/wp2208669.png',
-    '2': 'https://wallpapercave.com/wp/wp3276763.jpg',
-    '3': 'https://wallpapercave.com/wp/wp1964365.png',
+    '1': Loot,
+    '2': Intro,
+    '3': Pc,
   };
 
   const dataArray = [
-    { title: "Date Schedule", content: "Starting from 22/08/2020 and will be ended in 7 days" },
-   
+    {
+      title: 'Date Schedule',
+      content: 'Starting from 22/08/2020 and will be ended in 7 days',
+    },
   ];
 
   return (
-    <TouchableOpacity style={{borderRadius:20,margin:20}} 
+    <TouchableOpacity
+      style={{borderRadius: 20, margin: 20}}
       onPress={props.onPress}>
-      <Card style={{borderRadius:20}}   >
+      <Card style={{borderRadius: 20}}>
+        <Accordion
+          dataArray={dataArray}
+          headerStyle={{backgroundColor: '#b7daf8'}}
+          contentStyle={{backgroundColor: '#ddecf8'}}
+        />
 
-      <Accordion
-            dataArray={dataArray}
-            headerStyle={{ backgroundColor: "#b7daf8" }}
-            contentStyle={{ backgroundColor: "#ddecf8" }}
-          />
-
-        <CardItem cardBody style={{borderRadius:20}}>
-          <Image  source={{uri: images[props.imageSource]}} style={styles.img} />
+        <CardItem cardBody style={{borderRadius: 20}}>
+          <Image source={images[props.imageSource]} style={styles.img} />
         </CardItem>
         <CardItem>
           <Left>
@@ -55,13 +59,11 @@ const Card_earnScreen = props => {
           <Right>
             <Icon active name="ios-people" />
             <Text>{props.People}</Text>
-            
           </Right>
-         
         </CardItem>
         <Button block>
-            <Text>Enter</Text>
-          </Button>
+          <Text>Enter</Text>
+        </Button>
       </Card>
     </TouchableOpacity>
   );

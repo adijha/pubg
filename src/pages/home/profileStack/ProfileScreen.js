@@ -23,8 +23,10 @@ export default function Profile(props) {
           <Text style={styles.name}>Aditya Kumar Jha</Text>
           {/* <Text style={styles.info}>Web Developer / Mobile developer</Text> */}
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-            <Text style={styles.info}>Play Points: 30 </Text>
-            <Text style={styles.info}> Username: adijha</Text>
+            <Text style={styles.info}>Play Points: 30</Text>
+            <Text style={{width:20}}> </Text>
+
+            <Text style={styles.info}>Username: adijha</Text>
           </View>
           <Text style={styles.description}>
             Lorem ipsum dolor sit amet, saepe sapientem eu nam. Qui ne assum
