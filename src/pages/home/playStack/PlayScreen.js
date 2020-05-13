@@ -1,22 +1,32 @@
 import React, {useState} from 'react';
-import {FlatList, StyleSheet, Image, View, Text} from 'react-native';
-// import {Container, Header, Body, Title, Text} from 'native-base';
+import {FlatList, StyleSheet, View} from 'react-native';
 import Intro from '../../../assets/intro.jpg';
+import Pc from '../../../assets/pc.png';
+import Loot from '../../../assets/loot.png';
 import Card from '../../../components/Card';
-const PlayScreen = () => {
+const PlayScreen = props => {
+  const [games, setGames] = useState([
+    {text: 'PUBG MOBILE', img: Intro},
+    {text: 'PUBG PC', img: Pc},
+    {text: 'PUBG LITE', img: Loot},
+  ]);
   return (
-    <View style={{backgroundColor: '#23283B', flex: 1}}>
-      {/* <Header hasTabs style={{marginBottom: 10, backgroundColor: '#23283B'}}>
-        <Body style={{alignItems: 'left'}}>
-          <Title style={{color: 'white'}}>Play</Title>
-        </Body>
-      </Header> */}
-      <Card img={Intro} text="PUBG MOBILE" />
-      <Card img={Intro} text="PUBG MOBILE" />
-      <Card img={Intro} text="PUBG MOBILE" />
+    <View style={{backgroundColor: '#23283B', flex: 1, paddingTop: 10}}>
+      <FlatList
+        data={games}
+        renderItem={({item}) => (
+          <Card
+            onPress={() => props.navigation.navigate('PlayDetails')}
+            img={item.img}
+            text={item.text}
+          />
+        )}
+        keyExtractor={item => item.text}
+      />
     </View>
   );
 };
+
 const styles = StyleSheet.create({});
 
 export default PlayScreen;
