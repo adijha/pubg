@@ -178,8 +178,8 @@ const MainTabNavigator = () => {
         style: {height: 57},
       }}>
       <Tab.Screen name="Play" component={PlayStackNavigator} />
-      <Tab.Screen name="Profile" component={ProfileStackNavigator} />
       <Tab.Screen name="Earn" component={EarnStackNavigator} />
+      <Tab.Screen name="Profile" component={ProfileStackNavigator} />
     </Tab.Navigator>
   );
 };
