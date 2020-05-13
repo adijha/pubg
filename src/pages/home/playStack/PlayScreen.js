@@ -1,13 +1,13 @@
 import React from 'react';
-import {TouchableOpacity, StyleSheet, Image, View} from 'react-native';
-import {Container, Header, Body, Title, Text} from 'native-base';
+import {TouchableOpacity, StyleSheet, Image, View,Text} from 'react-native';
+// import {Container, Header, Body, Title, Text} from 'native-base';
 import Intro from '../../../assets/intro.jpg';
-
+import Card from '../../../components/Card';
 const TabsAdvancedExample = () => {
   return (
     <View style={{backgroundColor: '#23283B', flex: 1}}>
-      {/* <Header hasTabs style={{marginBottom:10}}>
-        <Body style={{alignItems: 'center'}}>
+      {/* <Header hasTabs style={{marginBottom: 10, backgroundColor: '#23283B'}}>
+        <Body style={{alignItems: 'left'}}>
           <Title style={{color: 'white'}}>Play</Title>
         </Body>
       </Header> */}

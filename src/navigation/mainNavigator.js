@@ -55,7 +55,7 @@ export const PlayStackNavigator = () => {
   return (
     <PlayStack.Navigator>
       <PlayStack.Screen
-        options={{headerShown: false}}
+        // options={{headerShown: false}}
         name="Play"
         component={PlayScreen}
       />
