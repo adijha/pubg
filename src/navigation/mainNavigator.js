@@ -55,7 +55,21 @@ export const PlayStackNavigator = () => {
   return (
     <PlayStack.Navigator>
       <PlayStack.Screen
-        // options={{headerShown: false}}
+        options={{
+          headerStyle: {
+            backgroundColor: '#22273A',
+          },
+          headerTintColor: 'white',
+          title: 'Play Games and Earn',
+          headerLeft: () => (
+            <IoniconsI
+              name="logo-game-controller-b"
+              size={30}
+              color="#FABE0F"
+              style={{marginLeft: 22}}
+            />
+          ),
+        }}
         name="Play"
         component={PlayScreen}
       />
