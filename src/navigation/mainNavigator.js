@@ -119,7 +119,11 @@ const MainTabNavigator = () => {
           }
         },
       })}
-      tabBarOptions={{activeTintColor: '#4e2bed'}}>
+      tabBarOptions={{
+        activeTintColor: '#FABE0F',
+        inactiveBackgroundColor: '#23283B',
+        activeBackgroundColor: '#23283B',
+      }}>
       <Tab.Screen name="Play" component={PlayStackNavigator} />
       <Tab.Screen name="Profile" component={ProfileStackNavigator} />
       <Tab.Screen name="Earn" component={EarnStackNavigator} />
