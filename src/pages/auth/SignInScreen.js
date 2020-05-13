@@ -95,7 +95,7 @@ export default function SignInScreen(props) {
         <Button
           rounded
           info
-          style={{width: 46, justifyContent: 'center', alignSelf: 'center'}}>
+          style={{width: 46, justifyContent: 'center', alignSelf: 'center', backgroundColor: '#3E69B9'}}>
           <ActivityIndicator size="large" color="white" />
         </Button>
       )}

@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Keyboard,
   ActivityIndicator,
+  ScrollView,
 } from 'react-native';
 import {Button} from 'native-base';
 import AuthApi from '../../api/Auth';
@@ -18,24 +19,36 @@ export default function SignUpScreen(props) {
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [space, setSpace] = useState(false);
+  const [moreSpace, setMoreSpace] = useState(false);
   const onSubmit = async event => {
     event.preventDefault();
+    setSpace(false);
+    setMoreSpace(false);
     setLoading(true);
-    try {
-      const response = await AuthApi.post('/signup', {email, password});
-      await AsyncStorage.setItem('token', response.data.token);
+    if ((email.length < 6 || password.length < 6, name.length < 4)) {
+      setErrorMessage('Fill out the form');
       setLoading(false);
-      props.navigation.navigate('Earn');
-    } catch (error) {
-      setErrorMessage('Something went wrong');
-      setLoading(false);
-      console.log({error});
+    } else {
+      try {
+        const response = await AuthApi.post('/signup', {email, password});
+        await AsyncStorage.setItem('token', response.data.token);
+        setLoading(false);
+        props.navigation.navigate('Earn');
+      } catch (error) {
+        setErrorMessage('Something went wrong');
+        setLoading(false);
+        console.log({error});
+      }
     }
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.greeting}> {`Hello,\nWelcome`} </Text>
+    <ScrollView style={styles.container}>
+      {!space ? <View style={{height: 65}} /> : null}
+      {!moreSpace ? (
+        <Text style={styles.greeting}> {`Hello,\nWelcome`} </Text>
+      ) : null}
       <View style={styles.errorMessage}>
         {errorMessage ? (
           <Text style={styles.error}> {errorMessage} </Text>
@@ -59,6 +72,8 @@ export default function SignUpScreen(props) {
             style={styles.input}
             autoCapitalize="none"
             onChangeText={email => setEmail(email)}
+            onFocus={() => setSpace(true)}
+            onSubmitEditing={() => setSpace(false)}
           />
         </View>
         <View
@@ -71,33 +86,52 @@ export default function SignUpScreen(props) {
             secureTextEntry
             autoCapitalize="none"
             onChangeText={password => setPassword(password)}
+            onFocus={() => {
+              setSpace(true), setMoreSpace(true);
+            }}
+            onSubmitEditing={() => {
+              setSpace(false), setMoreSpace(false);
+            }}
           />
         </View>
-      </View>
 
-      {!loading ? (
-        <TouchableOpacity style={styles.button} onPress={onSubmit}>
-          <Text
+        {!loading ? (
+          <Button
+            full
+            rounded
+            info
             style={{
-              color: '#FFF',
-              fontWeight: '500',
+              backgroundColor: '#3E69B9',
+              marginTop: 27,
+            }}
+            onPress={onSubmit}>
+            <Text
+              style={{
+                color: '#FFF',
+                fontWeight: '500',
+              }}>
+              Sign in
+            </Text>
+          </Button>
+        ) : (
+          <Button
+            rounded
+            info
+            style={{
+              width: 46,
+              justifyContent: 'center',
+              alignSelf: 'center',
+              backgroundColor: '#3E69B9',
+              marginTop: 27,
             }}>
-            Sign Up
-          </Text>
-        </TouchableOpacity>
-      ) : (
-        <Button
-          rounded
-          info
-          style={{width: 46, justifyContent: 'center', alignSelf: 'center'}}>
-          <ActivityIndicator size="large" color="white" />
-        </Button>
-      )}
+            <ActivityIndicator size="large" color="white" />
+          </Button>
+        )}
+      </View>
 
       <TouchableOpacity
         style={{
           alignSelf: 'center',
-          marginTop: 42,
         }}
         onPress={() => {
           props.navigation.navigate('SignIn');
@@ -119,13 +153,13 @@ export default function SignUpScreen(props) {
           </Text>
         </Text>
       </TouchableOpacity>
-    </View>
+    </ScrollView>
   );
 }
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 20,
+    paddingHorizontal: 39,
   },
   greeting: {
     marginTop: 32,
@@ -137,7 +171,7 @@ const styles = StyleSheet.create({
     height: 72,
     alignItems: 'center',
     justifyContent: 'center',
-    marginHorizontal: 30,
+    // marginHorizontal: 30,
   },
   error: {
     color: '#6CBAD9',
@@ -147,7 +181,7 @@ const styles = StyleSheet.create({
   },
   form: {
     marginBottom: 48,
-    marginHorizontal: 30,
+    // marginHorizontal: 30,
   },
   inputTitle: {
     color: '#8A8F9E',
@@ -162,7 +196,7 @@ const styles = StyleSheet.create({
     color: '#161F3D',
   },
   button: {
-    marginHorizontal: 30,
+    // marginHorizontal: 30,
     backgroundColor: '#6CBAD9',
     borderRadius: 4,
     height: 52,
