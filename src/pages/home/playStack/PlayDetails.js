@@ -13,20 +13,18 @@ import {
 import Tab1 from './tabOne';
 import Tab2 from './tabTwo';
 import Tab3 from './tabThree';
-const PlayDetails = () => {
+const PlayDetails = ({navigation, route}) => {
   return (
     <Container>
-      <Header hasTabs>
-        {/* <Left /> */}
+      <Header hasTabs style={{backgroundColor: '#22273A'}}>
         <Body style={{alignItems: 'center'}}>
-          <Title style={{color: 'white'}}>Play</Title>
+          <Title style={{color: 'white'}}>{route.params.game}</Title>
         </Body>
-        {/* <Right /> */}
       </Header>
       <Tabs>
         <Tab
           heading={
-            <TabHeading>
+            <TabHeading style={{backgroundColor: '#22273A'}}>
               <Icon name="ios-clock" />
               <Text>ONGOING</Text>
             </TabHeading>
@@ -35,7 +33,7 @@ const PlayDetails = () => {
         </Tab>
         <Tab
           heading={
-            <TabHeading>
+            <TabHeading style={{backgroundColor: '#22273A'}}>
               <Icon name="logo-game-controller-b" />
               <Text>UPCOMING</Text>
             </TabHeading>
@@ -44,7 +42,7 @@ const PlayDetails = () => {
         </Tab>
         <Tab
           heading={
-            <TabHeading>
+            <TabHeading style={{backgroundColor: '#22273A'}}>
               <Icon name="apps" />
               <Text>RESULT</Text>
             </TabHeading>
