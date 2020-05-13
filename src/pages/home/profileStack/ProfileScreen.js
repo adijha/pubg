@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {StyleSheet, View, Image, ActivityIndicator} from 'react-native';
 import {Container, Header, Text, Body, Title, Button} from 'native-base';
 import AsyncStorage from '@react-native-community/async-storage';
-
+import Img from '../../../assets/profile.jpg';
 export default function Profile(props) {
   const [loading, setLoading] = useState(false);
 
@@ -14,17 +14,14 @@ export default function Profile(props) {
         </Body>
       </Header>
       <View style={styles.header} />
-      <Image
-        style={styles.avatar}
-        source={{uri: 'https://adijha.com/profile.jpg'}}
-      />
+      <Image style={styles.avatar} source={Img} />
       <View style={styles.body}>
         <View style={styles.bodyContent}>
           <Text style={styles.name}>Aditya Kumar Jha</Text>
           {/* <Text style={styles.info}>Web Developer / Mobile developer</Text> */}
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
             <Text style={styles.info}>Play Points: 30</Text>
-            <Text style={{width:20}}> </Text>
+            <Text style={{width: 20}}> </Text>
 
             <Text style={styles.info}>Username: adijha</Text>
           </View>
