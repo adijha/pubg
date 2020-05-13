@@ -16,7 +16,9 @@ const PlayScreen = props => {
         data={games}
         renderItem={({item}) => (
           <Card
-            onPress={() => props.navigation.navigate('PlayDetails')}
+            onPress={() =>
+              props.navigation.navigate('PlayDetails', {game: item.text})
+            }
             img={item.img}
             text={item.text}
           />

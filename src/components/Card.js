@@ -1,9 +1,9 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, Image} from 'react-native';
 
-const Card = ({img, text}) => {
+const Card = ({img, text, onPress}) => {
   return (
-    <TouchableOpacity style={styles.card}>
+    <TouchableOpacity style={styles.card} onPress={onPress}>
       <Image source={img} style={styles.image} />
       <Text style={styles.text}>{text}</Text>
     </TouchableOpacity>
