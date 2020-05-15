@@ -54,7 +54,7 @@ export default class NotificationsView extends Component {
           style={styles.notificationList}
           enableEmptySections={true}
           dataSource={this.state.dataSource}
-          renderRow={notification => {
+          renderRow={(notification) => {
             return (
               <View style={styles.notificationBox}>
                 <Image

@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, Image} from 'react-native';
 import Earncard from '../../in-component/Card_earnScreen';
 import {Container, Content, Header, Title, Body} from 'native-base';
-const EarnDetails = props => {
+const EarnDetails = (props) => {
   return (
     <Container style={styles.container}>
       <Header hasTabs style={{backgroundColor: '#22273A'}}>
@@ -18,7 +18,7 @@ const EarnDetails = props => {
           likes="250"
           Tournament="Gold"
           People="40"
-        />        
+        />
       </Content>
     </Container>
   );

@@ -5,7 +5,6 @@ import AsyncStorage from '@react-native-community/async-storage';
 import Img from '../../../assets/profile.jpg';
 export default function Profile(props) {
   const [loading, setLoading] = useState(false);
-
   return (
     <Container>
       <View style={styles.header} />

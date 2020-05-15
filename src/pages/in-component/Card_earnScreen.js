@@ -15,7 +15,7 @@ import Loot from '../../assets/loot.png';
 import Intro from '../../assets/intro.jpg';
 import Pc from '../../assets/pc.png';
 
-const Card_earnScreen = props => {
+const Card_earnScreen = (props) => {
   const images = {
     '1': Loot,
     '2': Intro,

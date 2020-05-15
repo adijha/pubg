@@ -19,7 +19,7 @@ export default function SignInScreen(props) {
   const [errorMessage, setErrorMessage] = useState(null);
   const [loading, setLoading] = useState(false);
   const [space, setSpace] = useState(false);
-  const onSubmit = async event => {
+  const onSubmit = async (event) => {
     event.preventDefault();
     setSpace(false);
     setLoading(true);
@@ -43,7 +43,7 @@ export default function SignInScreen(props) {
   return (
     <ScrollView style={styles.container}>
       {!space ? <View style={{height: 65}} /> : null}
-      <Text style={styles.greeting}> {`Hello again.\nWelcome back.`} </Text>
+      <Text style={styles.greeting}> {'Hello again.\nWelcome back.'} </Text>
       <View style={styles.errorMessage}>
         {errorMessage ? (
           <Text style={styles.error}> {errorMessage} </Text>
@@ -55,7 +55,7 @@ export default function SignInScreen(props) {
           <TextInput
             style={styles.input}
             autoCapitalize="none"
-            onChangeText={email => setEmail(email)}
+            onChangeText={(email) => setEmail(email)}
           />
         </View>
         <View
@@ -67,7 +67,7 @@ export default function SignInScreen(props) {
             style={styles.input}
             secureTextEntry
             autoCapitalize="none"
-            onChangeText={password => setPassword(password)}
+            onChangeText={(password) => setPassword(password)}
             onFocus={() => setSpace(true)}
             onSubmitEditing={() => setSpace(false)}
           />
@@ -95,7 +95,12 @@ export default function SignInScreen(props) {
         <Button
           rounded
           info
-          style={{width: 46, justifyContent: 'center', alignSelf: 'center', backgroundColor: '#3E69B9'}}>
+          style={{
+            width: 46,
+            justifyContent: 'center',
+            alignSelf: 'center',
+            backgroundColor: '#3E69B9',
+          }}>
           <ActivityIndicator size="large" color="white" />
         </Button>
       )}

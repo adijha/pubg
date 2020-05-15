@@ -1,23 +1,21 @@
-import React, {useEffect} from 'react';
-import {View, Text, StyleSheet, ActivityIndicator, Image} from 'react-native';
+import React, {useEffect, useCallback} from 'react';
+import {View, StyleSheet, Image} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
-import pubg from '../../assets/icons/pubg.png';
+import Pubg from '../../assets/icons/pubg.png';
 export default function LoadingScreen(props) {
-  const tryLogin = async () => {
+  const tryLogin = useCallback(async () => {
     setTimeout(async () => {
       const token = await AsyncStorage.getItem('token');
       props.navigation.navigate(token ? 'Earn' : 'SignIn');
     }, 1000);
-  };
+  }, [props.navigation]);
   useEffect(() => {
     tryLogin();
-  }, []);
+  }, [tryLogin]);
 
   return (
     <View style={styles.container}>
-      {/* <Text>Loading</Text> */}
-      <Image source={pubg} />
-      {/* <ActivityIndicator size="large" /> */}
+      <Image source={Pubg} />
     </View>
   );
 }

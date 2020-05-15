@@ -21,7 +21,7 @@ export default function SignUpScreen(props) {
   const [loading, setLoading] = useState(false);
   const [space, setSpace] = useState(false);
   const [moreSpace, setMoreSpace] = useState(false);
-  const onSubmit = async event => {
+  const onSubmit = async (event) => {
     event.preventDefault();
     setSpace(false);
     setMoreSpace(false);
@@ -47,7 +47,7 @@ export default function SignUpScreen(props) {
     <ScrollView style={styles.container}>
       {!space ? <View style={{height: 65}} /> : null}
       {!moreSpace ? (
-        <Text style={styles.greeting}> {`Hello,\nWelcome`} </Text>
+        <Text style={styles.greeting}> {'Hello,\nWelcome'} </Text>
       ) : null}
       <View style={styles.errorMessage}>
         {errorMessage ? (
@@ -60,7 +60,7 @@ export default function SignUpScreen(props) {
           <TextInput
             style={styles.input}
             autoCapitalize="none"
-            onChangeText={name => setName(name)}
+            onChangeText={(name) => setName(name)}
           />
         </View>
         <View
@@ -71,7 +71,7 @@ export default function SignUpScreen(props) {
           <TextInput
             style={styles.input}
             autoCapitalize="none"
-            onChangeText={email => setEmail(email)}
+            onChangeText={(email) => setEmail(email)}
             onFocus={() => setSpace(true)}
             onSubmitEditing={() => setSpace(false)}
           />
@@ -85,7 +85,7 @@ export default function SignUpScreen(props) {
             style={styles.input}
             secureTextEntry
             autoCapitalize="none"
-            onChangeText={password => setPassword(password)}
+            onChangeText={(password) => setPassword(password)}
             onFocus={() => {
               setSpace(true), setMoreSpace(true);
             }}
