@@ -10,15 +10,30 @@ import {
   Body,
   Title,
 } from 'native-base';
+import IoniconsI from 'react-native-vector-icons/Ionicons';
+import FontAwesomeI from 'react-native-vector-icons/FontAwesome';
+import MaterialCommunityIconsI from 'react-native-vector-icons/MaterialCommunityIcons';
 import {PlayTabThree, PlayTabTwo, PlayTabOne} from '../../../components/Tab';
 const PlayDetails = ({navigation, route}) => {
+  navigation.setOptions({
+    headerStyle: {
+      backgroundColor: '#22273A',
+    },
+    headerTintColor: 'white',
+    title: route.params.game,
+    headerLeft: () => (
+      <IoniconsI
+        onPress={() => navigation.goBack()}
+        name="md-arrow-round-back"
+        size={30}
+        color="#FABE0F"
+        style={{marginLeft: 22}}
+      />
+    ),
+  });
+
   return (
     <Container>
-      <Header hasTabs style={{backgroundColor: '#22273A'}}>
-        <Body style={{alignItems: 'center'}}>
-          <Title style={{color: 'white'}}>{route.params.game}</Title>
-        </Body>
-      </Header>
       <Tabs>
         <Tab
           heading={

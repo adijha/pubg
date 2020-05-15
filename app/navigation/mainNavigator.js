@@ -73,16 +73,12 @@ export const PlayStackNavigator = () => {
         name="Play"
         component={PlayScreen}
       />
-      <PlayStack.Screen
-        options={{headerShown: false}}
-        name="PlayDetails"
-        component={PlayDetails}
-      />
+      <PlayStack.Screen name="PlayDetails" component={PlayDetails} />
     </PlayStack.Navigator>
   );
 };
 
-export const EarnStackNavigator = () => (
+export const EarnStackNavigator = ({navigation}) => (
   <EarnStack.Navigator>
     <EarnStack.Screen
       options={{
