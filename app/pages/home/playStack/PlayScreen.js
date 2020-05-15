@@ -3,7 +3,7 @@ import {FlatList, StyleSheet, View} from 'react-native';
 import Intro from '../../../assets/intro.jpg';
 import Pc from '../../../assets/pc.png';
 import Loot from '../../../assets/loot.png';
-import Card from '../../../components/Card';
+import {Card} from '../../../components/Card';
 const PlayScreen = (props) => {
   const [games, setGames] = useState([
     {text: 'PUBG MOBILE', img: Intro},

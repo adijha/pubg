@@ -1,8 +1,7 @@
 import React from 'react';
-import {View} from 'react-native';
 import {Card, CardItem, Text, Body} from 'native-base';
 
-const card_playtab = () => {
+const PlayCard = () => {
   return (
     <Card>
       <CardItem header bordered>
@@ -21,4 +20,4 @@ const card_playtab = () => {
   );
 };
 
-export default card_playtab;
+export default PlayCard;

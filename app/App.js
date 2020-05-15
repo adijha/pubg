@@ -1,6 +1,6 @@
 import React from 'react';
-import {StyleSheet, SafeAreaView, View, Text} from 'react-native';
-import MainNavigator from './src/navigation/mainNavigator';
+import {StyleSheet, SafeAreaView} from 'react-native';
+import MainNavigator from './navigation/mainNavigator';
 
 const styles = StyleSheet.create({
   container: {

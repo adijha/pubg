@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, Image} from 'react-native';
-import Earncard from '../../in-component/Card_earnScreen';
+import {Earncard} from '../../../components/Card';
 import {Container, Content, Header, Title, Body} from 'native-base';
 const EarnDetails = (props) => {
   return (

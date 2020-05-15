@@ -1,4 +1,4 @@
-import React, {Component, StyleSheet} from 'react';
+import React from 'react';
 import {
   Container,
   Header,
@@ -10,9 +10,7 @@ import {
   Body,
   Title,
 } from 'native-base';
-import Tab1 from './tabOne';
-import Tab2 from './tabTwo';
-import Tab3 from './tabThree';
+import {PlayTabThree, PlayTabTwo, PlayTabOne} from '../../../components/Tab';
 const PlayDetails = ({navigation, route}) => {
   return (
     <Container>
@@ -29,7 +27,7 @@ const PlayDetails = ({navigation, route}) => {
               <Text>ONGOING</Text>
             </TabHeading>
           }>
-          <Tab1 />
+          <PlayTabOne />
         </Tab>
         <Tab
           heading={
@@ -38,7 +36,7 @@ const PlayDetails = ({navigation, route}) => {
               <Text>UPCOMING</Text>
             </TabHeading>
           }>
-          <Tab2 />
+          <PlayTabTwo />
         </Tab>
         <Tab
           heading={
@@ -47,7 +45,7 @@ const PlayDetails = ({navigation, route}) => {
               <Text>RESULT</Text>
             </TabHeading>
           }>
-          <Tab3 />
+          <PlayTabThree />
         </Tab>
       </Tabs>
     </Container>

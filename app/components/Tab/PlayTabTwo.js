@@ -1,20 +1,20 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
-import Card from '../../in-component/card_playtab';
+import {PlayCard} from '../../components/Card';
 import {Container, Content} from 'native-base';
-const tabTwo = () => {
+const PlayTabTwo = () => {
   return (
     <Container style={styles.container}>
       <Content>
-        <Card />
-        <Card />
-        <Card />
+        <PlayCard />
+        <PlayCard />
+        <PlayCard />
       </Content>
     </Container>
   );
 };
 
-export default tabTwo;
+export default PlayTabTwo;
 
 const styles = StyleSheet.create({
   container: {

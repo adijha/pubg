@@ -1,7 +1,7 @@
 import React from 'react';
-import {StyleSheet, Image, ImageBackground} from 'react-native';
-import Earncard from '../../in-component/Card_earnScreen';
-import {Container, Content, Header, Title, Body, Thumbnail} from 'native-base';
+import {StyleSheet, ImageBackground} from 'react-native';
+import Earncard from '../../../components/Card/EarnCard';
+import {Container, Content} from 'native-base';
 import Sky from '../../../assets/sky.png';
 const EarnScreen = (props) => {
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Image, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, Image, TouchableOpacity} from 'react-native';
 import {
   Card,
   CardItem,
@@ -15,7 +15,7 @@ import Loot from '../../assets/loot.png';
 import Intro from '../../assets/intro.jpg';
 import Pc from '../../assets/pc.png';
 
-const Card_earnScreen = (props) => {
+const EarnCard = (props) => {
   const images = {
     '1': Loot,
     '2': Intro,
@@ -68,7 +68,7 @@ const Card_earnScreen = (props) => {
   );
 };
 
-export default Card_earnScreen;
+export default EarnCard;
 
 const styles = StyleSheet.create({
   container: {
