@@ -99,11 +99,7 @@ export const EarnStackNavigator = ({navigation}) => (
       name="Earn"
       component={EarnScreen}
     />
-    <EarnStack.Screen
-      options={{headerShown: false}}
-      name="EarnDetails"
-      component={EarnDetails}
-    />
+    <EarnStack.Screen name="EarnDetails" component={EarnDetails} />
   </EarnStack.Navigator>
 );
 
