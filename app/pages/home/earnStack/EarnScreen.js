@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, ImageBackground} from 'react-native';
-import Earncard from '../../../components/Card/EarnCard';
+import {EarnCard} from '../../../components/Card';
 import {Container, Content} from 'native-base';
 import Sky from '../../../assets/sky.png';
 const EarnScreen = (props) => {
@@ -8,7 +8,7 @@ const EarnScreen = (props) => {
     <Container style={styles.container}>
       <ImageBackground source={Sky} style={styles.image}>
         <Content>
-          <Earncard
+          <EarnCard
             onPress={() =>
               props.navigation.navigate('EarnDetails', {
                 imageSource: '1',
@@ -20,7 +20,7 @@ const EarnScreen = (props) => {
             Tournament="Gold"
             People="40"
           />
-          <Earncard
+          <EarnCard
             onPress={() =>
               props.navigation.navigate('EarnDetails', {
                 imageSource: '2',
@@ -32,7 +32,7 @@ const EarnScreen = (props) => {
             Tournament="Silver"
             People="60"
           />
-          <Earncard
+          <EarnCard
             onPress={() =>
               props.navigation.navigate('EarnDetails', {
                 imageSource: '3',

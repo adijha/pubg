@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, Image} from 'react-native';
-import {Earncard} from '../../../components/Card';
+import {EarnCard} from '../../../components/Card';
 import {Container, Content, Header, Title, Body} from 'native-base';
 const EarnDetails = (props) => {
   return (
@@ -13,7 +13,7 @@ const EarnDetails = (props) => {
         </Body>
       </Header>
       <Content>
-        <Earncard
+        <EarnCard
           imageSource={props.route.params.imageSource}
           likes="250"
           Tournament="Gold"
