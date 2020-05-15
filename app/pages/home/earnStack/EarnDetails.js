@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Image} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {EarnCard} from '../../../components/Card';
 import {Container, Content, Header, Title, Body} from 'native-base';
 const EarnDetails = (props) => {
