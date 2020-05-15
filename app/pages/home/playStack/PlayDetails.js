@@ -1,18 +1,6 @@
 import React from 'react';
-import {
-  Container,
-  Header,
-  Tab,
-  Tabs,
-  TabHeading,
-  Icon,
-  Text,
-  Body,
-  Title,
-} from 'native-base';
+import {Container, Tab, Tabs, TabHeading, Icon, Text} from 'native-base';
 import IoniconsI from 'react-native-vector-icons/Ionicons';
-import FontAwesomeI from 'react-native-vector-icons/FontAwesome';
-import MaterialCommunityIconsI from 'react-native-vector-icons/MaterialCommunityIcons';
 import {PlayTabThree, PlayTabTwo, PlayTabOne} from '../../../components/Tab';
 const PlayDetails = ({navigation, route}) => {
   navigation.setOptions({
